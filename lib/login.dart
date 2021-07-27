@@ -49,11 +49,13 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
+                    child: 
+                      ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                            Navigator.pop(context);
                         },
-                        child: Text('NEXT')),
+                        child: Text('NEXT'),
+                      ),
                   )
                 ],
               ),
