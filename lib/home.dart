@@ -13,50 +13,66 @@ class HomePage extends StatelessWidget {
         return const <Card>[];
       }
 
-      final ThemeData theme = Theme.of(context);
       final NumberFormat formatter = NumberFormat.simpleCurrency(
           locale: Localizations.localeOf(context).toString());
 
       return products.map((product) {
         return Card(
           clipBehavior: Clip.antiAlias,
+          margin: EdgeInsets.all(10),
+          shadowColor: Colors.blueAccent,
+          color: Colors.blueAccent,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(3.0)),
+          ),
+          borderOnForeground: false,
           //  Adjust card heights (103)
-          child: Column(
-            // Center items on the card (103)
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 18 / 11,
-                child: Image.asset(
-                  product.assetName,
-                  package: product.assetPackage,
-                  // Adjust the box size (102)
-                ),
+          child: Container(
+            decoration: const BoxDecoration(
+              shape: BoxShape.rectangle,
+              border: Border(
+                top: BorderSide(width: 2.0, color: Colors.black45),
+                left: BorderSide(width: 2.0, color: Colors.black45),
+                right: BorderSide(width: 2.0, color: Colors.black45),
+                bottom: BorderSide(width: 2.0, color: Colors.black45),
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                  child: Column(
-                    // Align labels to the bottom and center (103)
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    // Change innermost Column (103)
-                    children: <Widget>[
-                      // Handle overflowing labels (103)
-                      Text(
-                        product.name,
-                        style: theme.textTheme.headline6,
-                        maxLines: 1,
+            ),
+            child: Column(
+              // Center items on the card (103)
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                AspectRatio(
+                  aspectRatio: 18 / 11,
+                  child: Image.asset(product.assetName,
+                      package: product.assetPackage, fit: BoxFit.fitWidth
+                      // Adjust the box size (102)
                       ),
-                      SizedBox(height: 8.0),
-                      Text(
-                        formatter.format(product.price),
-                        style: theme.textTheme.subtitle2,
-                      ),
-                    ],
+                ),
+                Container(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(16.0, 12.0, 12.0, 8.0),
+                    child: Column(
+                      // Align labels to the bottom and center (103)
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // Change innermost Column (103)
+                      children: <Widget>[
+                        // Handle overflowing labels (103)
+                        Text(
+                          product.name,
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          maxLines: 1,
+                        ),
+                        SizedBox(height: 8.0),
+                        Text(
+                          formatter.format(product.price),
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       }).toList();
