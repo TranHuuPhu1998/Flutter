@@ -1,4 +1,4 @@
-name: flutter_application_1
+name: tutorial
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -26,7 +26,8 @@ dependencies:
   intl: ^0.17.0-nullsafety.2
   cupertino_icons: ^1.0.2
   shrine_images: ^2.0.1
-
+  flutter_keyboard_size: ^1.0.0+3
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -37,6 +38,12 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: fonts/Rubik-Regular.ttf
+        - asset: fonts/Rubik-Medium.ttf
+          weight: 900
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
